@@ -3,7 +3,6 @@ import { PiWrapperBaseComponent } from '@piying/view-angular';
 import { fieldControlStatusClass } from '@piying/view-angular-core';
 import { setGlobalConfig, summarize } from 'valibot';
 
-
 @Component({
   selector: 'valid-wrapper',
   templateUrl: './component.html',
@@ -23,4 +22,9 @@ export class ValidWC extends PiWrapperBaseComponent {
   classStatus$$ = computed(() => {
     return fieldControlStatusClass(this.field$$().form.control);
   });
+  isChangedStatus$$ = computed(
+    () =>
+      this.field$$().form.control?.dirty$$() ||
+      this.field$$().form.control?.touched$$()
+  );
 }

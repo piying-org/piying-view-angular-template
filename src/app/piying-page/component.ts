@@ -42,4 +42,7 @@ export class PiyingPage {
     fieldGlobalConfig: FieldGlobalConfig,
     builder: CustomNgBuilder,
   };
+  modelChagned(event: any) {
+    console.log(event);
+  }
 }
