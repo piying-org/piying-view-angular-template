@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  NFCSchema,
   patchInputs,
   patchWrappers,
   setComponent,
@@ -34,6 +35,7 @@ export class PiyingPage {
         v.title('radio1-title')
       ),
       checkbox1: v.optional(v.boolean()),
+      __formHelper:v.pipe(NFCSchema,setComponent('formHelper'))
     }),
     v.title('form'),
     setComponent('fieldset')

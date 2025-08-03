@@ -50,6 +50,9 @@ export const FieldGlobalConfig = {
     fieldset: {
       type: FieldsetFGC,
     },
+    formHelper: {
+      type: () => import('./form-helper/component').then((a) => a.default),
+    },
   },
   wrappers: {
     validator: {
