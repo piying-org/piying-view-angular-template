@@ -2,6 +2,6 @@
 <div [class]="classStatus$$()" class="flex flex-col gap-2">
   <ng-container #fieldComponent></ng-container>
   @if (field.form.control?.errors&& isChangedStatus$$ ()) {
-  <p class="label text-error">{{ errorStr$$() }}</p>
+  <div class="text-error">{{ errorStr$$() }}</div>
   }
 </div>
