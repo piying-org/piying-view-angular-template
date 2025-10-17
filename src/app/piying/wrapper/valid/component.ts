@@ -1,5 +1,5 @@
-import { Component, computed } from '@angular/core';
-import { PiWrapperBaseComponent } from '@piying/view-angular';
+import { Component, computed, viewChild } from '@angular/core';
+import { PiyingViewWrapperBase } from '@piying/view-angular';
 import { fieldControlStatusClass } from '@piying/view-angular-core';
 import { setGlobalConfig, summarize } from 'valibot';
 
@@ -7,7 +7,9 @@ import { setGlobalConfig, summarize } from 'valibot';
   selector: 'valid-wrapper',
   templateUrl: './component.html',
 })
-export class ValidWC extends PiWrapperBaseComponent {
+export class ValidWC extends PiyingViewWrapperBase {
+  static __version = 2;
+  templateRef = viewChild.required('templateRef');
   errorStr$$ = computed(() => {
     const field = this.field$$();
     const valibot = field.form.control!.errors!['valibot'];
@@ -25,6 +27,6 @@ export class ValidWC extends PiWrapperBaseComponent {
   isChangedStatus$$ = computed(
     () =>
       this.field$$().form.control?.dirty$$() ||
-      this.field$$().form.control?.touched$$()
+      this.field$$().form.control?.touched$$(),
   );
 }

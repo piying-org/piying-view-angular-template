@@ -1,7 +1,9 @@
-@let field = field$$();
-<div [class]="classStatus$$()" class="flex flex-col gap-2">
-  <ng-container #fieldComponent></ng-container>
-  @if (field.form.control?.errors&& isChangedStatus$$ ()) {
-  <div class="text-error">{{ errorStr$$() }}</div>
-  }
-</div>
+<ng-template #templateRef>
+  @let field = field$$();
+  <div [class]="classStatus$$()" class="flex flex-col gap-2">
+    <ng-container #fieldComponent></ng-container>
+    @if (field.form.control?.errors && isChangedStatus$$()) {
+      <div class="text-error">{{ errorStr$$() }}</div>
+    }
+  </div>
+</ng-template>

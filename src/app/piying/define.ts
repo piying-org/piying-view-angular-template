@@ -10,36 +10,32 @@ import { ValidWC } from './wrapper/valid/component';
 import { CheckboxComponent } from './checkbox/component';
 import { LabelWC } from './wrapper/label/component';
 import { FieldsetFGC } from './group/fieldset/component';
+import { InputFCC } from './input';
+import { InputNumberFCC } from './input-number';
+import { InputCheckboxFCC } from './input-checkbox';
 export const FieldGlobalConfig = {
   types: {
     string: {
-      type: 'input',
+      type: InputFCC,
       attributes: {
         class: 'input',
       },
-      directives: [{ type: DefaultValueAccessor, selector: 'formControl' }],
       wrappers: ['label'],
     },
     number: {
-      type: 'input',
+      type: InputNumberFCC,
       attributes: {
-        type: 'number',
         class: 'input',
       },
-      directives: [{ type: NumberValueAccessor, selector: 'formControl' }],
     },
     radio: {
       type: () => import('./radio/component').then((a) => a.default),
     },
     boolean: {
-      type: 'input',
+      type: InputCheckboxFCC,
       attributes: {
-        type: 'checkbox',
         class: 'checkbox',
       },
-      directives: [
-        { type: CheckboxControlValueAccessor, selector: 'formControl' },
-      ],
     },
     checkbox: {
       type: CheckboxComponent,

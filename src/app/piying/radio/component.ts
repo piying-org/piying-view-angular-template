@@ -1,8 +1,12 @@
-import { Component, computed, forwardRef, input } from '@angular/core';
+import { Component, computed, forwardRef, input, viewChild } from '@angular/core';
 
 import { BaseControl } from '../base.component';
 import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { DefaultOptionConvert, OptionConvert, ResolvedOption } from '../util/options';
+import {
+  DefaultOptionConvert,
+  OptionConvert,
+  ResolvedOption,
+} from '../util/options';
 
 @Component({
   selector: 'app-radio',
@@ -17,6 +21,8 @@ import { DefaultOptionConvert, OptionConvert, ResolvedOption } from '../util/opt
   ],
 })
 export default class RadioComponent extends BaseControl {
+  static __version = 2;
+  templateRef = viewChild.required('templateRef');
   static index = 0;
   name = `radio-${RadioComponent.index++}`;
   options = input<any[]>([]);

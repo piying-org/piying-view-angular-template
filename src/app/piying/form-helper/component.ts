@@ -13,10 +13,12 @@ import { PI_VIEW_FIELD_TOKEN } from '@piying/view-angular';
 import { summarize } from 'valibot';
 
 @Component({
-  selector: '',
+  selector: 'form-helper',
   templateUrl: './component.html',
 })
 export default class FormHelperComponent {
+  static __version = 2;
+  templateRef = viewChild.required('templateRef');
   anchor = viewChild<ElementRef<HTMLElement>>('anchor');
   field = inject(PI_VIEW_FIELD_TOKEN);
   value = computed(() => this.field().form.root.value$$());
@@ -38,7 +40,7 @@ export default class FormHelperComponent {
           const formatter = new JSONFormatter(data);
           anchor.appendChild(formatter.render());
         },
-        { injector: this.injector }
+        { injector: this.injector },
       );
     });
   }

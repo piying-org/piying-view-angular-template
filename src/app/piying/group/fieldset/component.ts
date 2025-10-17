@@ -1,5 +1,5 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, viewChild } from '@angular/core';
 import { PiyingViewGroupBase } from '@piying/view-angular';
 
 @Component({
@@ -7,4 +7,7 @@ import { PiyingViewGroupBase } from '@piying/view-angular';
   templateUrl: './component.html',
   imports: [NgTemplateOutlet],
 })
-export class FieldsetFGC extends PiyingViewGroupBase {}
+export class FieldsetFGC extends PiyingViewGroupBase {
+  static __version = 2;
+  templateRef = viewChild.required('templateRef');
+}
