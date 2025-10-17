@@ -46,7 +46,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "piying-view-angular-template"
+              "baseHref": "/piying-view-angular-template/"
             },
             "development": {
               "optimization": false,
