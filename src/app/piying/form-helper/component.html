@@ -1,4 +1,4 @@
-<ng-template #templateRef>
+<ng-template #templateRef let-attr="attributes">
   <div #anchor></div>
   @let control = field().form.root;
   @if (control.errors && (control.touched || control.dirty)) {
@@ -8,7 +8,7 @@
     </div>
   }
 
-  <div class="flex gap-2 items-center">
+  <div [class]="attr()?.class">
     <input
       [disabled]="control.invalid"
       type="submit"

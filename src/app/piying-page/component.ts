@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  componentClass,
   NFCSchema,
   patchInputs,
   patchWrappers,
@@ -21,7 +22,7 @@ export class PiyingPage {
       number1: v.pipe(
         v.number(),
         v.title('number1'),
-        patchWrappers(['label', 'validator'])
+        patchWrappers(['label', 'validator']),
       ),
       radio1: v.pipe(
         v.optional(v.picklist(['v1', 'v2'])),
@@ -32,13 +33,17 @@ export class PiyingPage {
             { label: 'label-v2', value: 'v2' },
           ],
         }),
-        v.title('radio1-title')
+        v.title('radio1-title'),
       ),
       checkbox1: v.optional(v.boolean()),
-      __formHelper:v.pipe(NFCSchema,setComponent('formHelper'))
+      __formHelper: v.pipe(
+        NFCSchema,
+        setComponent('formHelper'),
+        componentClass('flex gap-2 items-center'),
+      ),
     }),
     v.title('form'),
-    setComponent('fieldset')
+    setComponent('fieldset'),
   );
   options = {
     fieldGlobalConfig: FieldGlobalConfig,

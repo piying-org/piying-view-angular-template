@@ -1,12 +1,12 @@
 import { Component, computed, forwardRef, input, viewChild } from '@angular/core';
 
-import { BaseControl } from '../base.component';
 import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
   DefaultOptionConvert,
   OptionConvert,
   ResolvedOption,
 } from '../util/options';
+import { BaseControl } from '@piying/view-angular';
 
 @Component({
   selector: 'app-radio',
