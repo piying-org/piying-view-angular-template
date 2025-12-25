@@ -41,7 +41,7 @@ export class PiyingPage {
   );
   options = {
     fieldGlobalConfig: FieldGlobalConfig,
-    builder: CustomNgBuilder as any,
+    builder: CustomNgBuilder,
   };
   modelChagned(event: any) {
     console.log(event);
