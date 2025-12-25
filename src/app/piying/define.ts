@@ -4,7 +4,7 @@ import {
   NumberValueAccessor,
   RangeValueAccessor,
 } from '@angular/forms';
-import { PiViewConfig } from '@piying/view-angular';
+import { actions, PiViewConfig } from '@piying/view-angular';
 
 import { ValidWC } from './wrapper/valid/component';
 import { CheckboxComponent } from './checkbox/component';
@@ -17,31 +17,39 @@ export const FieldGlobalConfig = {
   types: {
     string: {
       type: InputFCC,
-      attributes: {
-        class: 'input',
-      },
-      wrappers: ['label'],
+      actions: [
+        actions.attributes.set({
+          class: 'input',
+        }),
+        actions.wrappers.set(['label']),
+      ],
     },
     number: {
       type: InputNumberFCC,
-      attributes: {
-        class: 'input',
-      },
+      actions: [
+        actions.attributes.set({
+          class: 'input',
+        }),
+      ],
     },
     radio: {
       type: () => import('./radio/component').then((a) => a.default),
     },
     boolean: {
       type: InputCheckboxFCC,
-      attributes: {
-        class: 'checkbox',
-      },
+      actions: [
+        actions.attributes.set({
+          class: 'checkbox',
+        }),
+      ],
     },
     checkbox: {
       type: CheckboxComponent,
-      props: {
-        hideTitle: true,
-      },
+      actions: [
+        actions.props.set({
+          hideTitle: true,
+        }),
+      ],
     },
     fieldset: {
       type: FieldsetFGC,

@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  componentClass,
-  NFCSchema,
-  patchInputs,
-  patchWrappers,
-  setComponent,
-} from '@piying/view-angular-core';
+import { NFCSchema, actions, setComponent } from '@piying/view-angular-core';
 import * as v from 'valibot';
 import { CustomNgBuilder } from '../piying/custom.builder';
 import { FieldGlobalConfig } from '../piying/define';
@@ -22,12 +16,12 @@ export class PiyingPage {
       number1: v.pipe(
         v.number(),
         v.title('number1'),
-        patchWrappers(['label', 'validator']),
+        actions.wrappers.set(['label', 'validator']),
       ),
       radio1: v.pipe(
         v.optional(v.picklist(['v1', 'v2'])),
         setComponent('radio'),
-        patchInputs({
+        actions.inputs.patch({
           options: [
             { label: 'label-v1', value: 'v1' },
             { label: 'label-v2', value: 'v2' },
@@ -39,7 +33,7 @@ export class PiyingPage {
       __formHelper: v.pipe(
         NFCSchema,
         setComponent('formHelper'),
-        componentClass('flex gap-2 items-center'),
+        actions.class.component('flex gap-2 items-center'),
       ),
     }),
     v.title('form'),
@@ -47,7 +41,7 @@ export class PiyingPage {
   );
   options = {
     fieldGlobalConfig: FieldGlobalConfig,
-    builder: CustomNgBuilder,
+    builder: CustomNgBuilder as any,
   };
   modelChagned(event: any) {
     console.log(event);
