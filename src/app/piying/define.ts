@@ -9,10 +9,10 @@ import { actions, PiViewConfig } from '@piying/view-angular';
 import { ValidWC } from './wrapper/valid/component';
 import { CheckboxComponent } from './checkbox/component';
 import { LabelWC } from './wrapper/label/component';
-import { FieldsetFGC } from './group/fieldset/component';
 import { InputFCC } from './input';
 import { InputNumberFCC } from './input-number';
 import { InputCheckboxFCC } from './input-checkbox';
+import { FieldsetFGC } from './group/fieldset/component';
 export const FieldGlobalConfig = {
   types: {
     string: {

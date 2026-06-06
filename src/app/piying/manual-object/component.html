@@ -1,0 +1,9 @@
+<ng-template #templateRef>
+  <div>
+    <label for="">{{ user$$().props()["title"] }}</label>
+    <input class="input input-primary" type="text" [formControl]="user$$()" />
+  </div>
+  <div>
+    <ng-container [fieldTemplate]="name$$()"></ng-container>
+  </div>
+</ng-template>

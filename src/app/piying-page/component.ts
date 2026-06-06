@@ -4,6 +4,7 @@ import * as v from 'valibot';
 import { CustomNgBuilder } from '../piying/custom.builder';
 import { FieldGlobalConfig } from '../piying/define';
 import { PiyingView } from '@piying/view-angular';
+import { ManualObjectComponent } from '../piying/manual-object/component';
 @Component({
   selector: 'app-piying',
   templateUrl: './component.html',
@@ -30,6 +31,13 @@ export class PiyingPage {
         v.title('radio1-title'),
       ),
       checkbox1: v.optional(v.boolean()),
+      manualInput: v.pipe(
+        v.object({
+          user: v.pipe(v.string(), v.title('User')),
+          name: v.pipe(v.string(), v.title('Name')),
+        }),
+        setComponent(ManualObjectComponent),
+      ),
       __formHelper: v.pipe(
         NFCSchema,
         setComponent('formHelper'),
