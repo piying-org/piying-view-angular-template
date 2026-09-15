@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
-import { NumberValueAccessor } from '../../hook/number_value_accessor';
+import { Component, forwardRef, viewChild } from '@angular/core';
+import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { AttributesDirective, BaseControl } from '@piying/view-angular';
 
 @Component({
-  selector: 'input[type=number]',
-  template: '',
-  standalone: true,
-  hostDirectives: [NumberValueAccessor],
+  selector: 'app-input-number',
+  templateUrl: './component.html',
+  imports: [FormsModule, AttributesDirective],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputNumberFCC),
+      multi: true,
+    },
+  ],
 })
-export class InputNumberFCC {
-  readonly __isElement = true;
+export class InputNumberFCC extends BaseControl<number | null> {
+  static __version = 2;
+  templateRef = viewChild.required('templateRef');
 }

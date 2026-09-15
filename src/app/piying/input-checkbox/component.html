@@ -1,0 +1,11 @@
+<ng-template #templateRef let-attr="attributes">
+  <input
+    type="checkbox"
+    class="checkbox"
+    [attributes]="attr() ?? {}"
+    [ngModel]="value$()"
+    (ngModelChange)="valueChange($event)"
+    [disabled]="disabled$()"
+    (blur)="touchedChange()"
+  />
+</ng-template>

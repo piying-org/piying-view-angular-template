@@ -1,9 +1,3 @@
-import {
-  CheckboxControlValueAccessor,
-  DefaultValueAccessor,
-  NumberValueAccessor,
-  RangeValueAccessor,
-} from '@angular/forms';
 import { actions, PiViewConfig } from '@piying/view-angular';
 
 import { ValidWC } from './wrapper/valid/component';

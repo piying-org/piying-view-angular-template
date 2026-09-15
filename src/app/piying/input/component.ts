@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
-import { DefaultValueAccessor } from '../../hook/default_value_accessor';
+import { Component, forwardRef, viewChild } from '@angular/core';
+import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { AttributesDirective, BaseControl } from '@piying/view-angular';
 
 @Component({
-  selector: 'input',
-  template: '',
-  standalone: true,
-  hostDirectives: [DefaultValueAccessor],
+  selector: 'app-input',
+  templateUrl: './component.html',
+  imports: [FormsModule, AttributesDirective],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputFCC),
+      multi: true,
+    },
+  ],
 })
-export class InputFCC {
-  readonly __isElement = true;
+export class InputFCC extends BaseControl {
+  static __version = 2;
+  templateRef = viewChild.required('templateRef');
 }
