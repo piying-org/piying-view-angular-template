@@ -1,1 +1,14 @@
-<router-outlet></router-outlet>
+<nav class="navbar bg-base-200 border-b border-base-300 px-4 gap-2">
+  <a
+    routerLink="/"
+    class="btn btn-sm"
+    routerLinkActive="btn-primary"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Schema</a
+  >
+  <a routerLink="/manual" class="btn btn-sm" routerLinkActive="btn-primary"
+    >manual</a
+  >
+</nav>
+
+<router-outlet class="block p-4" />
