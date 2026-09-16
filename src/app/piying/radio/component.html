@@ -6,7 +6,7 @@
           type="radio"
           [name]="name"
           class="radio"
-          (change)="valueChange(item.value)"
+          (change)="valueChange(item.value); indexChange.emit($index)"
           [disabled]="item.disabled || disabled$()"
           (blur)="touchedChange()"
         />

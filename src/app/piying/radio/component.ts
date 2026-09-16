@@ -1,4 +1,11 @@
-import { Component, computed, forwardRef, input, viewChild } from '@angular/core';
+import {
+  Component,
+  computed,
+  forwardRef,
+  input,
+  output,
+  viewChild,
+} from '@angular/core';
 
 import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
@@ -32,6 +39,7 @@ export default class RadioComponent extends BaseControl {
       transform: (input) => ({ ...DefaultOptionConvert, ...input }),
     },
   );
+  indexChange = output<number>();
   resolvedOptions$$ = computed(() => this.transformOptions(this.options()));
   transformOptions(options: any[]): ResolvedOption[] {
     return options.map((option) => {

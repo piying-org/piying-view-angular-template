@@ -60,4 +60,4 @@ export const FieldGlobalConfig = {
       type: LabelWC,
     },
   },
-} as PiViewConfig;
+}

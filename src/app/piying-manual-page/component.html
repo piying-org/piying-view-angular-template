@@ -6,7 +6,8 @@
     [formControl]="field"
     [path]="['number1']"
   />
-  <input type="radio" class="radio" [formControl]="field" [path]="['radio1']" />
+  <ng-container [fieldTemplate]="field" [path]="['radio1']"></ng-container>
+  
   <input
     type="checkbox"
     class="checkbox"
