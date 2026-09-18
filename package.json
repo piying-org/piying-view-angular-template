@@ -29,7 +29,7 @@
     "@angular/platform-server": "^22.1.6",
     "@angular/router": "^22.1.6",
     "@angular/ssr": "^22.1.8",
-    "@piying/view-angular": "^2.16.5",
+    "@piying/view-angular": "^2.16.9",
     "@tailwindcss/postcss": "^4.1.11",
     "@valibot/i18n": "^1.2.0",
     "daisyui": "^5.0.47",
